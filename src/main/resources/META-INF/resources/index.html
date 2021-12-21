@@ -12,14 +12,14 @@
     <div id="msgarea">
     </div>
     <script>
-        const sse = new EventSource('/prices');
+        const sse = new EventSource('/prices-in-mem');
 
         function processMessage(data) {
             var m = $(document.createElement("div"))
             m.text(data);
             $('#msgarea').append(m);
         }
-        sse.onmessage = e => processMessage(JSON.parse(e.data));
+        sse.onmessage = e => processMessage(e.data);
         processMessage("Messages:")
     </script>
 </body>
