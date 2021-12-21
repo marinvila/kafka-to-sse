@@ -1,0 +1,15 @@
+mp:
+  messaging:
+    incoming:
+      prices:
+        connector: smallrye-kafka
+        topic: prices
+        auto:
+          offset:
+            reset: earliest
+        value:
+          deserializer: org.apache.kafka.common.serialization.DoubleDeserializer
+
+  kafka:
+    devservices:
+      port: 43210
