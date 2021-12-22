@@ -2,7 +2,7 @@ package io.github.rinmalavi;
 
 import io.smallrye.mutiny.Multi;
 import io.smallrye.reactive.messaging.annotations.Channel;
-import org.jboss.resteasy.annotations.SseElementType;
+import org.jboss.resteasy.reactive.RestSseElementType;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -19,7 +19,7 @@ public class PriceResource {
 
     @GET
     @Produces(MediaType.SERVER_SENT_EVENTS)
-    @SseElementType("text/plain")
+    @RestSseElementType("text/plain")
     public Multi<Double> stream() {
         return prices;
     }
